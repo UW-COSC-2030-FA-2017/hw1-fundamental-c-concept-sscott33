@@ -2,8 +2,8 @@
 // Created by Samuel Scott on 9/22/2017 @ 16:32
 
 
-#ifndef _Collection_H
-#define _Collection_H
+#ifndef _Collection_H_
+#define _Collection_H_
 
 #include <iostream>
 #include <random>
@@ -15,6 +15,7 @@ template <class T> class Collection {
 public:
 
     Collection<T>(int maxSize);
+    ~Collection<T>();
 
 
     /** Accessors **/
@@ -40,7 +41,7 @@ public:
         // removes an object "x" from the array if it exists as an element
         // if multiple "x" equivalents exist, it will remove them too
 
-    void removeRandom(T x);
+    void removeRandom();
         // remeoves an object at a random location in the array
         // the indexes that can be chosen are elements of [0,size - 1]
 
@@ -51,6 +52,13 @@ protected:
     int size;
 
     T items[];
+
+
+    void clean();
+        // moves all objects in the array as forward as possible
+        // also removes gaps in the array
+        // should be used after each removal mutator function except makeEmpty
+        // also updates the size attribue after removals
 
 
 };

@@ -1,6 +1,6 @@
 This project was created by Samuel Scott.
 
-This project makes use of modified code for generating random numbers within a range and originates from "https://stackoverflow.com/questions/7560114/random-number-c-in-some-range". It was created by Morgan Stanley, known as "Cubbi" on stackoverflow.
+This project makes use of modified code for generating random numbers within a range and the unmodified version originates from "https://stackoverflow.com/questions/7560114/random-number-c-in-some-range". It was created by Morgan Stanley, known as "Cubbi" on stackoverflow.
 
 //////////////// Begin Morgan Stanley's Code ////////////////
 
