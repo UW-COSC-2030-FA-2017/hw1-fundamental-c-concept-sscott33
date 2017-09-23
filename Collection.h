@@ -9,24 +9,28 @@
 
 using namespace std;
 
-class Collection {
+template <class T> class Collection {
 
 public:
 
-    Collection(int maxSize);
+    Collection<T>(int maxSize);
 
+
+    /** Accessors **/
+    bool notContained(T item) {
+        // returning true right now to compile and check syntax
+        return true;
+    }
+
+    /** Mutators **/
 
 protected:
     /** trait and collection variables **/
     int maxSize;
     int size;
 
-    double items[];
+    T items[];
 
-    /** Accessors **/
-    
-
-    /** Mutators **/
 
 };
 
