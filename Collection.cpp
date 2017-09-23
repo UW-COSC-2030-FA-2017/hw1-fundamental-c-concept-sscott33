@@ -12,7 +12,18 @@ Collection<T>::Collection(int maxSize) {
     /*this->type*/ items[maxSize];
 }
 
-// unncomment main() to check for syntax errors when compiling this file
-int main() {
-    return 0;
+template <class T>
+bool notContained(T x) {
+    for (int i = 0; i < maxSize; i++) {
+        if (x.equals(items[i])) return false;
+    }
+    return true;
+}
+
+template <class T>
+void removeRandom(T x) {
+    // the following code for generating random numbers within a range
+        // originates from "https://stackoverflow.com/questions/7560114/random-number-c-in-some-range"
+        // and was created by Morgan Stanley, known as "Cubbi" on stackoverflow
+    // this code does make use of the "random" class
 }
