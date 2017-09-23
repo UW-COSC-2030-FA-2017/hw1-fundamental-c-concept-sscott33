@@ -18,6 +18,7 @@ public:
 
     /** Accessors **/
     template <class T> bool notContained(T item) {
+        // returning true right now to compile and check syntax
         return true;
     }
 
