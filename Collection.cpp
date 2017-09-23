@@ -3,13 +3,16 @@
 
 #include "Collection.h"
 
-Collection::Collection(int maxSize) {
+struct driverObj {};
+
+
+template <class T> Collection<driverObj>::Collection(int maxSize) {
     this->maxSize = maxSize;
     size = 0;
-    items[maxSize];
+    this->type items[maxSize];
 }
 
 // unncomment main() to check for syntax errors when compiling this file
-// int main() {
-//     return 0;
-// }
+int main() {
+    return 0;
+}
