@@ -1,0 +1,15 @@
+In file included from Collection.cpp:4:0:
+Collection.h:31:33: error: data member 'items' cannot be a member template
+     template <class T> T items[];
+                                 ^
+Collection.cpp:9:20: error: prototype for 'Collection<driverObj>::Collection(int)' does not match any in class 'Collection<driverObj>'
+ template <class T> Collection<driverObj>::Collection(int maxSize) {
+                    ^~~~~~~~~~~~~~~~~~~~~
+In file included from Collection.cpp:4:0:
+Collection.h:12:30: error: candidates are: constexpr Collection<driverObj>::Collection(Collection<driverObj>&&)
+ template <class type_> class Collection {
+                              ^~~~~~~~~~
+Collection.h:12:30: error:                 constexpr Collection<driverObj>::Collection(const Collection<driverObj>&)
+Collection.h:16:24: error:                 template<class T> Collection<type_>::Collection(int, T) [with T = T; type_ = driverObj]
+     template <class T> Collection(int maxSize, T obj);
+                        ^~~~~~~~~~
