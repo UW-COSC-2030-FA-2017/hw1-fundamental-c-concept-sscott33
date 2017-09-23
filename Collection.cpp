@@ -3,7 +3,7 @@
 
 #include "Collection.h"
 
-public:
+//public:
 
     template <class T>
     Collection<T>::Collection(int maxSize) {
@@ -81,7 +81,7 @@ public:
         clean();
     }
 
-protected:
+//protected:
     template <class T>
     void Collection<T>::clean() {
         for (int i = 0; i < size - 1; i++) {
@@ -100,9 +100,8 @@ protected:
         }
 
         int i = 0;
-        for each(T item in items) {
+        while (i < maxSize && items[i] != NULL) {
             i++;
         }
         size = i;
     }
-}
