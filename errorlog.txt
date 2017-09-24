@@ -1,0 +1,32 @@
+In file included from CollectionDriver.cpp:5:0:
+Collection.cpp:18:32: error: no 'Collection<T>::~Collection()' member function declared in class 'Collection<T>'
+     Collection<T>::~Collection() {
+                                ^
+In file included from Collection.cpp:4:0,
+                 from CollectionDriver.cpp:5:
+Collection.h: In destructor 'Collection<TestClass>::~Collection()':
+Collection.h:13:26: error: unknown array size in delete
+ template <class T> class Collection {
+                          ^~~~~~~~~~
+CollectionDriver.cpp: In function 'int main()':
+CollectionDriver.cpp:17:43: note: synthesized method 'Collection<TestClass>::~Collection()' first required here 
+     Collection<TestClass> TestClassArray(4);
+                                           ^
+CollectionDriver.cpp:19:5: error: 'assert' was not declared in this scope
+     assert TestClassArray.isEmpty();
+     ^~~~~~
+In file included from CollectionDriver.cpp:5:0:
+Collection.cpp: In instantiation of 'Collection<T>::Collection(int) [with T = TestClass]':
+CollectionDriver.cpp:17:43:   required from here
+Collection.cpp:9:42: error: unknown array size in delete
+     Collection<T>::Collection(int maxSize) {
+                                          ^
+Collection.cpp:13:22: error: no match for 'operator=' (operand types are 'TestClass' and 'TestClass*')
+             items[i] = new T();     // does not work this nicely in c++
+             ~~~~~~~~~^~~~~~~~~
+In file included from TestClass.cpp:3:0,
+                 from CollectionDriver.cpp:6:
+TestClass.h:5:7: note: candidate: constexpr TestClass& TestClass::operator=(const TestClass&)
+ class TestClass {
+       ^~~~~~~~~
+TestClass.h:5:7: note:   no known conversion for argument 1 from 'TestClass*' to 'const TestClass&'

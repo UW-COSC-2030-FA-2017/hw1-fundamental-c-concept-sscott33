@@ -62,7 +62,7 @@ protected:
     // overload the assignment operator
     // template <class T>
     // T& operator= const T &obj;
-    T& operator=(const T& obj);
+    //T& operator=(const T& obj);
 
 
     /** trait and collection variables **/
