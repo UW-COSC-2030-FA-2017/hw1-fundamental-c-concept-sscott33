@@ -15,13 +15,15 @@ template <class T> class Collection {
 public:
 
     Collection<T>(int maxSize);
-    ~Collection<T>();
+    //~Collection<T>();
 
 
     /** Accessors **/
 
     bool isEmpty();
         // returns true IFF there are no objects in the array "items"
+        // requires that an empty object accept null in equals()
+        // requires that an empty object be equivalent to its default
 
     bool notContained(T x);
         // returns true IFF the object "x" is not contained in "items"
@@ -47,18 +49,27 @@ public:
 
 
 protected:
+    void clean();
+    // moves all objects in the array as forward as possible
+    // also removes gaps in the array
+    // should be used after each removal mutator function except makeEmpty
+    // also updates the size attribue after removals
+
+
+    // overload the assignment operator
+    // template <class T>
+    // T& operator= const T &obj;
+    T& operator=(const T& obj);
+
+
     /** trait and collection variables **/
     int maxSize;
     int size;
 
-    T items[];
+
+    /*extern*/ T items[];
 
 
-    void clean();
-        // moves all objects in the array as forward as possible
-        // also removes gaps in the array
-        // should be used after each removal mutator function except makeEmpty
-        // also updates the size attribue after removals
 
 
 };

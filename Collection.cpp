@@ -9,19 +9,21 @@
     Collection<T>::Collection(int maxSize) {
         this->maxSize = maxSize;
         size = 0;
-        /*this->type*/ items[maxSize];
+        for (int i = 0; i < maxSize; i++) {
+            items[i] = new T();     // does not work this nicely in c++
+        }
     }
 
     template <class T>
     Collection<T>::~Collection() {
-        delete size;
-        delete maxSize;
-        delete items;
+        // delete size;
+        // delete maxSize;
+        // delete items;
     }
 
     template <class T>
     bool Collection<T>::isEmpty() {
-        return (items[0] == NULL);
+        return (items[0].equals(new T()));
     }
 
     template <class T>
@@ -35,7 +37,7 @@
     template <class T>
     void Collection<T>::makeEmpty() {
         for (int i = 0; i < size; i++) {
-            items[i] = NULL;
+            items[i] = new T();
         }
         size = 0;
     }
@@ -55,8 +57,8 @@
     template <class T>
     void Collection<T>::remove(T x) {
         for (int i = 0; i < size; i++) {
-            if (items[i] == x) {
-                items[i] = NULL;
+            if (items[i].equals(x)) {
+                items[i] = new T();
             }
         }
         clean();
@@ -75,7 +77,7 @@
         uniform_int_distribution<> distr(0, size - 1); // define the range
 
         // remove the item at the random index
-        items[distr(eng)] = NULL;
+        items[distr(eng)] = new T();
 
         // clean the array
         clean();
@@ -87,20 +89,20 @@
         for (int i = 0; i < size - 1; i++) {
             static int index;
 
-            if (items[i] == NULL) {
+            if (items[i].equals(new T())) {
                 index = i;
 
                 do {
                     index++;
-                } while (items[index] == NULL && index < size);
+                } while (items[index].equals(new T()) && index < size);
 
                 items[i] = items[index];
-                items[index] = NULL;
+                items[index] = new T();
             }
         }
 
         int i = 0;
-        while (i < maxSize && items[i] != NULL) {
+        while (i < maxSize && !items[i].equals(new T())) {
             i++;
         }
         size = i;
