@@ -16,40 +16,46 @@ int main() {
 
     Collection<TestClass> TestClassArray(4);
 
-    assert TestClassArray.isEmpty();
-    cout << "isEmpty() executed successfully" << endl;
-
-    assert TestClassArray.insert(obj1);
-    cout << "insert() executed successfully" << endl;
-
-    assert !TestClassArray.notContained(obj1);
-    assert !TestClassArray.notContained(obj2);
-    cout << "notContained() executed successfully" << endl;
-
-    assert TestClassArray.insert(obj2);
+    cout << TestClassArray.isEmpty();
+    cout << endl;
+    // cout << "isEmpty() executed successfully" << endl;
+    //
+    cout << TestClassArray.insert(obj1);
+    cout << endl;
+    // cout << "insert() executed successfully" << endl;
+    //
+    cout << !TestClassArray.notContained(obj1);
+    cout << TestClassArray.notContained(obj2);
+    cout << endl;
+    // cout << "notContained() executed successfully" << endl;
+    //
+    cout << TestClassArray.insert(obj2);
     TestClassArray.remove(obj1);
-    assert TestClassArray.notContained(obj1)
-    assert !TestClassArray.isEmpty();
-    assert TestClassArray.insert(obj3);
-    assert TestClassArray.insert(obj3);
-    assert TestClassArray.insert(obj4);
-    assert !TestClassArray.insert(obj1);
+    cout << TestClassArray.notContained(obj1);
+    cout << !TestClassArray.isEmpty();
+    cout << TestClassArray.insert(obj3);
+    cout << TestClassArray.insert(obj3);
+    cout << TestClassArray.insert(obj4);
+    cout << !TestClassArray.insert(obj1);
     TestClassArray.remove(obj3);
-    assert TestClassArray.notContained(obj3);
-    cout << "remove() executed successfully" << endl;
-
+    cout << TestClassArray.notContained(obj3);
+    cout << endl;
+    // // cout << "remove() executed successfully" << endl;
+    // //
     TestClassArray.makeEmpty();
-    assert TestClassArray.isEmpty();
-    cout << "makeEmpty() executed successfully" << endl;
-
+    cout << TestClassArray.isEmpty();
+    cout << endl;
+    // // cout << "makeEmpty() executed successfully" << endl;
+    // //
     TestClassArray.insert(obj1);
     TestClassArray.insert(obj2);
     TestClassArray.insert(obj3);
     TestClassArray.insert(obj4);
     TestClassArray.removeRandom();
-    assert (TestClassArray.notContained(obj1) || TestClassArray.notContained(obj2) || TestClassArray.notContained(obj3) || TestClassArray.notContained(obj4));
-    cout << "removeRandom() executed successfully" << endl;
-
+    cout << (TestClassArray.notContained(obj1) || TestClassArray.notContained(obj2) || TestClassArray.notContained(obj3) || TestClassArray.notContained(obj4));
+    cout << endl;
+    // // cout << "removeRandom() executed successfully" << endl;
+    //
 
 
 

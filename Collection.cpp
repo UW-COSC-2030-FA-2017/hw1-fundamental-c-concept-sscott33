@@ -99,7 +99,7 @@ protected:
 
     template <class T>
     bool Collection<T>::isEmpty() {
-        return (items[0].equals(new T()));
+        return (items[0].equals(*(new T())));
     }
 
     template <class T>
@@ -113,7 +113,7 @@ protected:
     template <class T>
     void Collection<T>::makeEmpty() {
         for (int i = 0; i < size; i++) {
-            items[i] = new T();
+            items[i] = *(new T());
         }
         size = 0;
     }
@@ -134,7 +134,7 @@ protected:
     void Collection<T>::remove(T x) {
         for (int i = 0; i < size; i++) {
             if (items[i].equals(x)) {
-                items[i] = new T();
+                items[i] = *(new T());
             }
         }
         clean();
@@ -153,7 +153,7 @@ protected:
         uniform_int_distribution<> distr(0, size - 1); // define the range
 
         // remove the item at the random index
-        items[distr(eng)] = new T();
+        items[distr(eng)] = *(new T());
 
         // clean the array
         clean();
@@ -165,20 +165,20 @@ protected:
         for (int i = 0; i < size - 1; i++) {
             static int index;
 
-            if (items[i].equals(new T())) {
+            if (items[i].equals(*(new T()))) {
                 index = i;
 
                 do {
                     index++;
-                } while (items[index].equals(new T()) && index < size);
+                } while (items[index].equals(*(new T())) && index < size);
 
                 items[i] = items[index];
-                items[index] = new T();
+                items[index] = *(new T());
             }
         }
 
         int i = 0;
-        while (i < maxSize && !items[i].equals(new T())) {
+        while (i < maxSize && !items[i].equals(*(new T()))) {
             i++;
         }
         size = i;
