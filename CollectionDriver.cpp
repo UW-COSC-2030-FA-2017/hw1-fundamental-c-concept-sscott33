@@ -49,7 +49,7 @@ int main() {
     TestClassArray.removeRandom();
     assert (TestClassArray.notContained(obj1) || TestClassArray.notContained(obj2) || TestClassArray.notContained(obj3) || TestClassArray.notContained(obj4));
     cout << "removeRandom() executed successfully" << endl;
-    
+
 
 
 
