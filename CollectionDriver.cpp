@@ -16,46 +16,92 @@ int main() {
 
     Collection<TestClass> TestClassArray(4);
 
-    cout << TestClassArray.isEmpty();
-    cout << endl;
-    // cout << "isEmpty() executed successfully" << endl;
-    //
-    cout << TestClassArray.insert(obj1);
-    cout << endl;
-    // cout << "insert() executed successfully" << endl;
-    //
-    cout << !TestClassArray.notContained(obj1);
-    cout << TestClassArray.notContained(obj2);
-    cout << endl;
-    // cout << "notContained() executed successfully" << endl;
-    //
-    cout << TestClassArray.insert(obj2);
-    TestClassArray.remove(obj1);
-    cout << TestClassArray.notContained(obj1);
-    cout << !TestClassArray.isEmpty();
-    cout << TestClassArray.insert(obj3);
-    cout << TestClassArray.insert(obj3);
-    cout << TestClassArray.insert(obj4);
-    cout << !TestClassArray.insert(obj1);
-    TestClassArray.remove(obj3);
-    cout << TestClassArray.notContained(obj3);
-    cout << endl;
-    // // cout << "remove() executed successfully" << endl;
-    // //
+    if (TestClassArray.isEmpty()) {
+        cout << "isEmpty() executed successfully" << endl;
+        cout << endl;
+    }
+    else {
+        cout << "isEmpty() failed to execute successfully" << endl;
+        cout << endl;
+        exit(0);
+    }
+
+    if (TestClassArray.insert(obj1)) {
+        cout << "insert() executed successfully" << endl;
+        cout << endl;
+    }
+    else {
+        cout << "insert() failed to execute successfully" << endl;
+        cout << endl;
+        exit(0);
+    }
+
+
+    if (!TestClassArray.notContained(obj1) && TestClassArray.notContained(obj2)) {
+        cout << "notContained() executed successfully" << endl;
+        cout << endl;
+    }
+    else {
+        cout << "notContained() failed to execute successfully" << endl;
+        cout << endl;
+        exit(0);
+    }
+
+
+    // obj1 is already in the array
+    if (TestClassArray.insert(obj2)) {
+        TestClassArray.remove(obj1);
+
+        if (TestClassArray.notContained(obj1)
+        && !TestClassArray.isEmpty()
+        && TestClassArray.insert(obj3)
+        && TestClassArray.insert(obj3)
+        && TestClassArray.insert(obj4)
+        && !TestClassArray.insert(obj1))
+        {
+            TestClassArray.remove(obj3);
+
+            if (TestClassArray.notContained(obj3)) {
+                cout << "remove() executed successfully" << endl;
+                cout << endl;
+            }
+            else {
+                cout << "remove() failed to execute successfully" << endl;
+                cout << endl;
+                exit(0);
+            }
+
+        }
+    }
+
+
     TestClassArray.makeEmpty();
-    cout << TestClassArray.isEmpty();
-    cout << endl;
-    // // cout << "makeEmpty() executed successfully" << endl;
-    // //
+    if (TestClassArray.isEmpty()) {
+        cout << "makeEmpty() executed successfully" << endl;
+        cout << endl;
+    }
+    else {
+        cout << "makeEmpty() failed execute successfully" << endl;
+        cout << endl;
+        exit(0);
+    }
+
     TestClassArray.insert(obj1);
     TestClassArray.insert(obj2);
     TestClassArray.insert(obj3);
     TestClassArray.insert(obj4);
     TestClassArray.removeRandom();
-    cout << (TestClassArray.notContained(obj1) || TestClassArray.notContained(obj2) || TestClassArray.notContained(obj3) || TestClassArray.notContained(obj4));
-    cout << endl;
-    // // cout << "removeRandom() executed successfully" << endl;
-    //
+    if (TestClassArray.notContained(obj1) || TestClassArray.notContained(obj2) || TestClassArray.notContained(obj3) || TestClassArray.notContained(obj4)) {
+        cout << "removeRandom() executed successfully" << endl;
+        cout << endl;
+    }
+    else {
+        cout << "removeRandom() failed to execute successfully" << endl;
+        cout << endl;
+        exit(0);
+    }
+
+
 
 
 
